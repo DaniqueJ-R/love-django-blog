@@ -1,1 +1,1 @@
-web: gunicorn blogproject.wsgi --log-file -
+web: gunicorn codestar.wsgi --log-file -
