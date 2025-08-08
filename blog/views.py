@@ -1,6 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.views import generic
+from .models import Post
 
 # Create your views here.
-def blog_text(request):
-    return HttpResponse("Hello, blog!")
+
+# class PostList(generic.ListView):
+#     model = Post
+
+class PostList(generic.ListView):
+    queryset = Post.objects.all()
+    template_name = "post_list.html"
