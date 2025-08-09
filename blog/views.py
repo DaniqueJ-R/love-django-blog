@@ -8,5 +8,5 @@ from .models import Post
 #     model = Post
 
 class PostList(generic.ListView):
-    queryset = Post.objects.all()
+    queryset = Post.objects.filter(status=0)
     template_name = "post_list.html"
