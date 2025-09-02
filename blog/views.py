@@ -5,7 +5,7 @@ from .models import Post
 # Create your views here.
 
 # class PostList(generic.ListView):
-#     model = Post
+#     model = Post 
 
 class PostList(generic.ListView):
     queryset = Post.objects.filter(status=1)
