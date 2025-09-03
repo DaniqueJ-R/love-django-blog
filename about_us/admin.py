@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import AboutUs
+from .models import AboutUs, CollaborateRequest
 from django_summernote.admin import SummernoteModelAdmin
 
 @admin.register(AboutUs)
@@ -8,3 +8,7 @@ class AboutUsAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
 # Register your models here.
+@admin.register(CollaborateRequest)
+class CollaborateRequestAdmin(admin.ModelAdmin):
+
+    list_display = ('message', 'read',)
