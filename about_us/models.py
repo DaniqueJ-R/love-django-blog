@@ -1,10 +1,12 @@
 from django.db import models
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class AboutUs(models.Model):
     """Model to store About Us page information."""
 
     title = models.CharField(max_length=100)
+    profile_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     updated_on = models.DateTimeField(auto_now_add=True)
 
