@@ -6,12 +6,16 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
 
+
 class Post(models.Model):
+    """
+    Stores a single blog post related to :model:`auth.user:`.
+    """ 
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     excerpt = models.TextField(blank=True)
     author = models.ForeignKey(
-    User, on_delete=models.CASCADE, related_name="blog_posts")
+        User, on_delete=models.CASCADE, related_name="blog_posts")
     featured_image = CloudinaryField('image', default='placeholder')
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -20,10 +24,14 @@ class Post(models.Model):
 
     def __str__(self):
         return f"The title of this post is {self.title}"
-    #changes the name to readabe text in admin panel
+    # changes the name to readabe text in admin panel
 
 
 class Comment(models.Model):
+    """
+    Stores a single comment post related to :model:`auth.user:` and
+    :model:`blog.Post:`.
+    """ 
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name="comments")
     author = models.ForeignKey(

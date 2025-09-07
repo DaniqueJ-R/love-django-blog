@@ -2,6 +2,8 @@ from django.db import models
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
+
+
 class AboutUs(models.Model):
     """Model to store About Us page information."""
 
@@ -12,9 +14,13 @@ class AboutUs(models.Model):
 
     def __str__(self):
         return self.title
-    #changes the name to readabe text in admin panel
+    # changes the name to readabe text in admin panel
+
 
 class CollaborateRequest(models.Model):
+    """
+    Model to store a single contact request
+    """
     name = models.CharField(max_length=200)
     email = models.EmailField()
     message = models.TextField()
